@@ -1,0 +1,81 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="angular\e2e\**" />
+    <Compile Remove="angular\node_modules\**" />
+    <Compile Remove="angular\out-tsc\**" />
+    <Compile Remove="wwwroot\lib\fontawesome-free-5.13.0-web\**" />
+    <Content Remove="angular\e2e\**" />
+    <Content Remove="angular\node_modules\**" />
+    <Content Remove="angular\out-tsc\**" />
+    <Content Remove="wwwroot\lib\fontawesome-free-5.13.0-web\**" />
+    <EmbeddedResource Remove="angular\e2e\**" />
+    <EmbeddedResource Remove="angular\node_modules\**" />
+    <EmbeddedResource Remove="angular\out-tsc\**" />
+    <EmbeddedResource Remove="wwwroot\lib\fontawesome-free-5.13.0-web\**" />
+    <None Remove="angular\e2e\**" />
+    <None Remove="angular\node_modules\**" />
+    <None Remove="angular\out-tsc\**" />
+    <None Remove="wwwroot\lib\fontawesome-free-5.13.0-web\**" />
+    <TypeScriptCompile Remove="angular\e2e\**" />
+    <TypeScriptCompile Remove="angular\node_modules\**" />
+    <TypeScriptCompile Remove="angular\out-tsc\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="EmailModule.cs" />
+    <Compile Remove="ExportToExcel.cs" />
+    <Compile Remove="OpenXMLExcel.cs" />
+    <Compile Remove="Pages\Help - Copy.cshtml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Pages\Help - Copy.cshtml" />
+    <Content Remove="wwwroot\css\fa-solid-900.eot" />
+    <Content Remove="wwwroot\css\fa-solid-900.svg" />
+    <Content Remove="wwwroot\css\fa-solid-900.ttf" />
+    <Content Remove="wwwroot\css\fa-solid-900.woff" />
+    <Content Remove="wwwroot\css\fa-solid-900.woff2" />
+    <Content Remove="wwwroot\css\fontawesome.bak" />
+    <Content Remove="wwwroot\css\glyphicons-halflings-regular.eot" />
+    <Content Remove="wwwroot\css\glyphicons-halflings-regular.svg" />
+    <Content Remove="wwwroot\css\glyphicons-halflings-regular.ttf" />
+    <Content Remove="wwwroot\css\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Aspose.Cells" Version="20.3.0" />
+    <PackageReference Include="Aspose.PDF" Version="20.4.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="EPPlus" Version="5.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="3.9.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="PdfRpt.Core" Version="1.4.2" />
+    <PackageReference Include="System.ServiceModel.Duplex" Version="4.7.*" />
+    <PackageReference Include="System.ServiceModel.Http" Version="4.7.*" />
+    <PackageReference Include="System.ServiceModel.NetTcp" Version="4.7.*" />
+    <PackageReference Include="System.ServiceModel.Primitives" Version="4.7.0" />
+    <PackageReference Include="System.ServiceModel.Security" Version="4.7.*" />
+    <!--<PackageReference Include="EPPlus" Version="5.1.0" />-->
+  </ItemGroup>
+
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services" />
+  </ItemGroup>
+
+</Project>

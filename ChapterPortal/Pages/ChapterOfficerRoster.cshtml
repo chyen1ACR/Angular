@@ -1,0 +1,115 @@
+﻿@page
+
+@model ChapterOfficerModel
+@{
+    ViewData["Title"] = "Chapter Officer Roster";
+}
+
+@using System.Data;
+
+<p>
+    <div class="h4">@ViewData["Title"]</div>
+    <hr />
+</p>
+<form method="post">
+    <p>
+        <div class="container">
+            <a asp-page-handler="ExportExcelEPPlus" class="btn btn-primary">Export to Excel</a>
+            <a asp-page-handler="ExportPDFEPPlus" class="btn btn-primary">Export to PDF</a>
+        </div>
+    </p>
+    @if (Model.OfficerList == null || Model.OfficerList.Rows.Count < 1)
+    {
+        <div class="alert-info">No chapter officer records.</div>
+    }
+    else
+    {
+        <table class="table">
+            <thead class="text-center alert-info">
+                <tr>
+                    <th>
+                        <input type="submit" multiple asp-page-handler="Sort" asp-route-colName="MEMBER_CUSTOMER_ID" value="Member Customer Id" class="border-0 bg-transparent font-weight-bold" style="text-decoration:underline;" />
+                    </th>
+                    <th>
+                        <input type="submit" asp-page-handler="Sort" asp-route-colName="LABEL_NAME" value="Full Name" class="border-0 bg-transparent font-weight-bold" style="text-decoration:underline;" />
+                    </th>
+                    <th>
+                        <input type="submit" asp-page-handler="Sort" asp-route-colName="POSITION_DESCRIPTION" value="Position Description" class="border-0 bg-transparent font-weight-bold" style="text-decoration:underline;" />
+                    </th>
+                    <th>
+                        <input type="submit" multiple asp-page-handler="Sort" asp-route-colName="BEGIN_DATE" value="Position Begin Date" class="border-0 bg-transparent font-weight-bold" style="text-decoration:underline;" />
+                    </th>
+                    <th>
+                        <input type="submit" multiple asp-page-handler="Sort" asp-route-colName="END_DATE" value="Position End Date" class="border-0 bg-transparent font-weight-bold" style="text-decoration:underline;" />
+                    </th>
+                    <th>
+                        <input type="submit" asp-page-handler="Sort" asp-route-colName="VOTING_STATUS" value="Voting Status" class="border-0 bg-transparent font-weight-bold" style="text-decoration:underline;" />
+                    </th>
+                    <th>
+                        <input type="submit" asp-page-handler="Sort" asp-route-colName="PRIMARY_EMAIL_ADDRESS" value="Primary Email Address" class="border-0 bg-transparent font-weight-bold" style="text-decoration:underline;" />
+                    </th>
+                    <th>
+                        <input type="submit" asp-page-handler="Sort" asp-route-colName="PRIMARY_PHONE" value="Primary Phone" class="border-0 bg-transparent font-weight-bold" style="text-decoration:underline;" />
+                    </th>
+                </tr>
+            </thead>
+            @{
+                var idx = 0;
+                var myClass = "";
+            }
+            @foreach (DataRow listItem in Model.OfficerList.Rows)
+            {
+                if (idx == 0)
+                {
+                    myClass = "text-center";
+                    idx++;
+                }
+                else
+                {
+                    myClass = "text-center bg-light";
+                    idx--;
+                }
+                <tr class="@myClass">
+                    <td>
+                        <a asp-page-handler="Officer" asp-route-id="@listItem["ID"]">@listItem["MEMBER_CUSTOMER_ID"]</a>
+                    </td>
+                    <td>
+                        <label>@listItem["LABEL_NAME"]</label>
+                    </td>
+                    <td>
+                        <label>@listItem["POSITION_DESCRIPTION"]</label>
+                    </td>
+                    <td>
+                        <label>@listItem["POSITION_BEGIN_DATE"]</label>
+                    </td>
+                    <td>
+                        <label>@listItem["POSITION_END_DATE"]</label>
+                    </td>
+                    <td>
+                        <label>@listItem["VOTING_STATUS"]</label>
+                    </td>
+                    <td>
+                        <label>@listItem["PRIMARY_EMAIL_ADDRESS"]</label>
+                    </td>
+                    <td>
+                        <label>@listItem["PRIMARY_PHONE"]</label>
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+    <div id="redirectCtl"></div>
+    @section scripts
+    {
+        <script>
+
+            function RedirectHandler(Id)
+            {
+                var url = '/ChapterOfficerRoster?handler=Officer&Id=' + Id;
+                $("#redirectCtl").load(url);
+                window.location.href = "/ChapterOfficerEdit";
+            };
+
+        </script>
+    }
+</form>

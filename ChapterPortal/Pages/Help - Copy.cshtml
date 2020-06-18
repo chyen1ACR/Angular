@@ -1,0 +1,84 @@
+﻿@page
+@model HelpModel
+@{
+    ViewData["Title"] = "Help page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+
+    <div id="accordion">
+        <div class="card">
+            <div class="card-header" data-toggle="collapse" style="font-family:Proxima-Nova; color: #000000; background-color: #976b26; text-align:left;" href="#collapse1">
+                <div aria-expanded="true" data-toggle="collapse" class="collapsed card-link" href="#collapse1">
+                    <i aria-expanded="true" class="fa"></i><strong>
+                    Who has access to the Chapter Portal?
+                    </strong>
+                </div>
+            </div>
+            <div id="collapse1" class="collapse" data-parent="#accordion">
+                <div class="card-body" style="background-color: #eaddc9; text-align:left;">
+                    Access to the Chapter Portal is granted for the duration of the chapter officer, councilor or alternate councilor’s term. All chapter staff contacts you have included in the ACR database also have access. Additionally, your CSC Liaison, RADPAC Advocacy Council Member and Committee on Chapters members who are also members of your chapter, as well as a number of ACR staff maintain a portal account. Users can utilize the ACR.org single user sign-on in order to access the Chapter Portal. The login reset page of the ACR website offers convenient and immediate assistance in the event that chapter contacts are unable to recall their ACR username and/or password.
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" data-toggle="collapse" style="font-family:Proxima-Nova; color: #000000; background-color: #976b26; text-align:left;" href="#collapse2">
+                <div aria-expanded="true" data-toggle="collapse" class="collapsed card-link" href="#collapse2">
+                    <i aria-expanded="true" class="fa"></i><strong>
+                    How do I know which individuals in my chapter have access?
+                    </strong>
+                </div>
+            </div>
+            <div id="collapse2" class="collapse" data-parent="#accordion">
+                <div class="card-body" style="background-color: #eaddc9; text-align:left;">
+                    You can reference your chapter roster in the reports section of the portal for a list of chapter contacts who maintain access to the Chapter Portal.
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" data-toggle="collapse" style="font-family:Proxima-Nova; color: #000000; background-color: #976b26; text-align:left;" href="#collapse3">
+                <div aria-expanded="true" data-toggle="collapse" class="collapsed card-link" href="#collapse3">
+                    <i aria-expanded="true" class="fa"></i><strong>
+                        What are Action Alerts?
+                    </strong>
+                </div>
+            </div>
+            <div id="collapse3" class="collapse" data-parent="#accordion">
+                <div class="card-body" style="background-color: #eaddc9; text-align:left;">
+                    ACR Government Relations and Economics staff will include vital calls to action in this section of the portal. You will find all relevant information and attachments included in these messages.
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" data-toggle="collapse" style="font-family:Proxima-Nova; color: #000000; background-color: #976b26; text-align:left;" href="#collapse4">
+                <div aria-expanded="true" data-toggle="collapse" class="collapsed card-link" href="#collapse4">
+                    <i aria-expanded="true" class="fa"></i><strong>
+                        Where do I direct my feedback about the portal?
+                    </strong>
+                </div>
+            </div>
+            <div id="collapse4" class="collapse" data-parent="#accordion">
+                <div class="card-body" style="background-color: #eaddc9; text-align:left;">
+                    Please use the feedback function on the main page of the portal. You can also contact Tanya Coogan at tcoogan@acr.org or call 1-800-227-5463 ext.4917. Your feedback is vital in developing a site that suits your needs as chapter leaders.
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" data-toggle="collapse" style="font-family:Proxima-Nova; color: #000000; background-color: #976b26; text-align:left;" href="#collapse5">
+                <div aria-expanded="true" data-toggle="collapse" class="collapsed card-link" href="#collapse5">
+                    <i aria-expanded="true" class="fa"></i><strong>
+                        Can I edit my ACR.org chapter web pages on the Portal?
+                    </strong>
+                </div>
+            </div>
+            <div id="collapse5" class="collapse" data-parent="#accordion">
+                <div class="card-body" style="background-color: #eaddc9; text-align:left;">
+                    No. The ACR.org chapter web pages are completely separate from the Chapter Portal. You may have opted to have a number of pages dedicated to your chapter on ACR.org (http://www.acr.org/Membership/Chapters). This is a cost effective way to maintain a presence on the internet. Anyone can access the information on these pages. In contrast the sensitive information and reports available on the Chapter Portal is accessible only by your chapter leaders and executives.
+                    <br /><br />
+                    If you need to make changes or add information to your chapter's web pages please email any to chapters@acr.org and include a description to allow ACR staff to maintain your web pages.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

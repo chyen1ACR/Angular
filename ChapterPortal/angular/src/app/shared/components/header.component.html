@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <a class="navbar-brand logo" href="#">
+        <span class="cp-logo">ChP</span>
+        <a href="/" class="text-white" style="text-decoration: none;">Chapter Portal</a>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse text-right" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Help/F&Q<i class="mdi mdi-help-circle-outline ml-2 f-15 align-middle"></i></a>
+            </li>
+            <!-- <li class="nav-item">
+                    <a class="nav-link" href="/">Announcement</a>
+                </li> -->
+        </ul>
+        <ul class="navbar-nav " *ngIf="Loginuser != undefined">
+            <li class="nav-item dropdown">  
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                    aria-expanded="false"> Welcome {{UserName}}</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Profile</a>
+                    <a class="dropdown-item" href="#">Settings</a>
+                    <a class="dropdown-item" href="/chapter/ChapterOffierEdit">Chapter Officer</a>
+                    <a class="dropdown-item" href="/chapter/myportal">MY Portal</a>
+                    <a class="dropdown-item" style="cursor: pointer !important;" (click)="Logout()">Logout</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="top-bar">
+    <div class="row">
+            <div class="col-md-6">
+                <div class="heading ml-3">Chapter Activity Dashboard</div>
+            </div>
+            <div class="col-md-6 text-right">
+                <span class="f-500 mr-1">Chapter Facility</span>
+                <select class="form-control d-inline-block">
+                    <option *ngFor="let portal of dropdownList" value="portal.chapterid"> {{portal.name}}</option>
+                    <!-- <option>Alabama Acadamey of Radiology</option> -->
+                </select>
+        </div>
+    </div>
+</div>

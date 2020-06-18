@@ -1,0 +1,33 @@
+<app-validation-popup *ngIf="ValidationMessage.MessageText != ''" [TempleteValidation]="ValidationMessage"></app-validation-popup>
+ <div class="tbl tbl-fixed w-100">
+    <div class="tbl-row">
+        <div class="tbl-cell">
+                <div class="card" style="width: 16rem;height : calc(100vh - 157px);overflow: auto;padding:8px">
+                        <app-treeview [FolderViewData]="FolderViewData" (CurrentSelectFolder)="CurrentSelectFolderTree($event)"></app-treeview>
+                        </div> 
+        </div>
+        <div class="tbl-cell">
+                <div>
+                        <input
+                        title="File/Files Upload"
+                        #fileInput
+                        id="fileUpload"
+                        type="file"
+                        (change)="filesPicked(fileInput.files, $event)"
+                        multiple style="visibility: hidden">
+                        <label class="btn btn-primary mr-5" for="fileUpload">Upload Files</label>
+                    
+                        <label class="btn btn-primary" for="FolderUpload">Upload Folder</label>
+                    <input
+                        title="Folder Upload"
+                        #folderInput
+                        id="FolderUpload"
+                        type="file"
+                        (change)="filesPicked(folderInput.files, $event)"
+                        webkitdirectory style="visibility: hidden"> 
+                 </div>  
+        </div>
+    </div>
+ </div> 
+
+

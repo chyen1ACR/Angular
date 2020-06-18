@@ -1,0 +1,20 @@
+﻿@page
+
+@model LandingModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+    <h2>Congratulation! You successfully logged in.</h2>
+
+    <p>
+        You are welcome to Chapter Portal site. <br />
+        Your member ID: @ViewData["Id"].<br />
+        Your chapter ID: @ViewData["ChapterId"].<br />
+        Your chapter name: @ViewData["ChapterName"].
+    </p>
+<form method="post">
+    <p>
+        <input type="submit" asp-page-handler="LogOff" class="btn btn-primary" value="   Log Off   " />
+    </p>
+</form>

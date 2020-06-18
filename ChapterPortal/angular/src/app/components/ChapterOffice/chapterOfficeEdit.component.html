@@ -1,0 +1,62 @@
+<div class="wrapper">
+    <div class="container">
+    <div class="card">
+        <div class="card-body">
+        <app-validation-popup *ngIf="ValidationMessage.MessageText != ''" [TempleteValidation]="ValidationMessage"></app-validation-popup>
+    <div class="form-group row">
+        <label for="name" class="col-sm-2 col-form-label">Full Name:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="Name" placeholder="Full Name">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="Description" class="col-sm-2 col-form-label">Position Description:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="Description" placeholder="Description">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="BeginDate" class="col-sm-2 col-form-label">Position Begin Date:</label>
+        <div class="col-sm-10">
+            <input type="date" class="form-control" [(ngModel)]="BeginDate" placeholder="Begin Date:">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="EndDate" class="col-sm-2 col-form-label">Position End Date:</label>
+        <div class="col-sm-10">
+            <input type="date" class="form-control" [(ngModel)]="EndDate" placeholder="End Date">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="Status" class="col-sm-2 col-form-label">Voting Status:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="Status" placeholder="Voting Status">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="EmailAddress" class="col-sm-2 col-form-label">Primary Email Address:</label>
+        <div class="col-sm-10">
+            <input type="email" class="form-control" [(ngModel)]="EmailAddress" placeholder="Email">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="Phone" class="col-sm-2 col-form-label">Primary Phone:</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" [(ngModel)]="Phone" placeholder="phone number">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="EmailAddress" class="col-sm-2 col-form-label">Additional Comments:</label>
+        <div class="col-sm-10">
+            <textarea class="form-control" [(ngModel)]="Comments"></textarea>
+        </div>
+    </div>
+    <div class="text-center">
+            <button type="button" class="btn btn-mini btn-primary mr-2" (click)="SaveOfficer()">Save</button>
+            <button type="button" class="btn btn-mini btn-secondary mr-2" (click) = "Clear()">Clear</button>
+            <button type="button" class="btn btn-mini btn-info" (click)="GoBackWindow()">Go Back</button>
+    </div>
+</div>
+</div>
+</div>
+</div>

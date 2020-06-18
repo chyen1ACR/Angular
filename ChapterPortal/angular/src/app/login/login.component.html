@@ -1,0 +1,35 @@
+<div class="d-table w-100 login-card" style="height: calc(100vh - 56px);">
+    <div class="container d-table-cell align-middle">
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card mr-auto ml-auto" style="width:430px">
+                    <div>
+                        <p class="text-inverse">Please sign in below with your ACR credentials.</p>
+                    </div>
+                    <hr>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <input type="text" placeholder="Username" name="username" class="form-control"
+                                [(ngModel)]="userid" [ngClass]="{ 'is-invalid': IsuserNameEmpty }" (keyup)="IsuserNameEmpty= false" required/>
+                        </div>
+                        <div class="form-group mr-auto">
+                            <input type="password" placeholder="Password" name="password" class="form-control"
+                                [(ngModel)]="pwd" [ngClass]="{ 'is-invalid': IsPasswordEmpty }" (keyup)="IsPasswordEmpty= false" required/>
+                        </div>
+                        <button type="submit" value="Login" id="btnlogin" (click)="onSubmit();" class="btn btn-primary btn-sm f-14 btn-block waves-effect text-center mt-5">Sign In</button>
+                        
+                        <div class="text-center" *ngIf="!IsvalidUser">
+                                <label class="txt-red small mt-2 mb-0" for="ErrorMessage">Login Failed!</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+

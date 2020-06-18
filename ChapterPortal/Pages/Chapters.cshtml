@@ -1,0 +1,37 @@
+﻿@page
+
+@model ChaptersModel
+@{
+    ViewData["Title"] = "My Chapters";
+}
+
+@using System.Data;
+
+<p>
+    <div class="h4">@ViewData["Title"]</div>
+    <hr />
+</p>
+<form method="post">
+    @if (Model.myChapters == null || Model.myChapters.Count < 1)
+    {
+        <div class="alert-info">No chapters for you to select.</div>
+    }
+    else
+    {
+        <table>
+            @{var idx = 0;}
+            @foreach (Chapter listItem in Model.myChapters)
+            {
+                <tr>
+                    <td align="left" valign="top" style="height:60px;">
+                            <input type="submit" id="@idx" asp-page-handler="Chapter" asp-route-id="@listItem.ChapterId|@listItem.Name"
+                                     onmouseover="this.className = 'ui1-btn ui1-btn-up-c  ui1-corner-all ui1-btn-hover-c';" 
+                                     onmousedown="this.className = 'ui1-btn ui1-btn-Down-c ui1-corner-all';" 
+                                     onmouseout="this.className = 'ui1-btn ui1-btn-up-c ui1-corner-all';" 
+                                     class="ui1-btn ui1-btn-up-c ui1-corner-all" value="@listItem.Name" style="width:400px;" />
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+</form>

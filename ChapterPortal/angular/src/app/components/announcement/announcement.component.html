@@ -1,0 +1,96 @@
+
+
+<div class="card">
+  <div class="card-header">
+    Announcements
+    <div class="float-right">
+    <button class="btn btn-mini btn-outline-primary f-12" (click)="open(EditAnnouncement)">Create New</button>
+    </div>
+  </div>
+  <div class="card-body p-0">
+    <!-- <label class="page-title">
+        Announcement Manager
+      </label> -->
+    <!-- <div class="tbl tbl-fixed">
+      <div class="tbl-row" *ngFor="let Announcement of announcements">
+        <div class="tbl-cell" style="width: 50%">
+            <div>
+                <img src="../../../assets/images/avatar.png" style="height: 70px !important" />
+                {{Announcement.startDate}}
+                {{Announcement.createdBy}}
+                <hr>
+                {{Announcement.plainText}}
+              </div>
+        </div>
+      </div>
+    </div> -->
+    <div class="row m-0 p-0">
+        <div class="card-body ann-card" [ngClass]="{'col-md-12':Announcement?.IsOddOne, 'col-md-6':!Announcement?.IsOddOne }" *ngFor="let Announcement of announcements; index as i">
+          <div class="f-11 txt-primary mb-3">Forms <span class="text-success">NEW</span></div>
+            <div class="form-inline">
+              <div class="mr-2">
+                  <img src="../../../assets/images/avatar.png" style="height: 60px !important" />
+              </div>
+              <div>
+                  <div class="txt-gray">
+                      {{Announcement.startDate}}
+                  </div>
+                  <div class="txt-gray">
+                      {{Announcement.createdBy}}
+                  </div>
+              </div>
+            </div>
+            <hr>
+            {{Announcement.plainText}}
+          </div>
+          </div>
+        </div>
+      </div>
+
+
+<ng-template #EditAnnouncement let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">New Announcement </h4>
+    <app-validation-popup *ngIf="ValidationMessage.MessageText != ''" [TempleteValidation]="ValidationMessage"></app-validation-popup>
+    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button> -->
+  </div>
+  <div class="modal-body">
+    <div class="row pt-3" style="margin:0px !important">
+      <div class="col-6">
+        <div class="form-group">
+          <input type="text" placeholder="select date range" [(ngModel)]="daterange" class="form-control"
+            bsDaterangepicker [bsConfig]="bsConfig" [minDate]="minDate" readonly>
+        </div>
+      </div>
+      <div class="col-6">
+        <ng-multiselect-dropdown [placeholder]="'Select Chapter'" [data]="dropdownList" [(ngModel)]="selectedItems"
+          [settings]="dropdownSettings" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+        </ng-multiselect-dropdown>
+      </div>
+    </div>
+    <div class="row pt-3" style="margin:0px !important">
+      <div class="col-12">
+        <editor apiKey="y4vgkfexpoqnd3v9eokzgeiphfcaaw7pk8genybo5xjyspsw" [init]="{
+            height: 300,
+            menubar: false,
+            plugins: [
+              'advlist autolink lists link image charmap print preview anchor',
+              'searchreplace visualblocks code fullscreen',
+              'insertdatetime media table paste code help wordcount'
+            ],
+            toolbar:
+              'undo redo | formatselect | bold italic backcolor | \
+              alignleft aligncenter alignright alignjustify | \
+              bullist numlist outdent indent | removeformat | link unlink | image preview fullscreen | help'
+          }"></editor>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-mini btn-primary" (click)="saveAnnouncement()">Save</button>
+    <button class="btn btn-mini btn-secondary" data-dismiss="modal" aria-label="Close"
+      (click)="d('Cross click')">Cancel</button>
+  </div>
+</ng-template>

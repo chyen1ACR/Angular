@@ -1,0 +1,68 @@
+﻿@page
+
+@model ChapterOfficerEditModel
+@{
+    ViewData["Title"] = "Chapter Officer Edit";
+}
+
+<p>
+    <div class="h4">@ViewData["Title"]</div>
+</p>
+<form method="post">
+    <table class="table">
+        <tr>
+            <td class="align-items-end">Full Name:</td>
+            <td>
+                <input type="text" value="@Model.Name" name="name" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <td class="align-items-end">Position Description:</td>
+            <td>
+                <input type="text" value="@Model.Description" name="description" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <td class="align-items-end">Position Begin Date:</td>
+            <td>
+                <input type="text" value="@Model.BeginDate" asp-format="{0:MM/dd/yyyy}" name="beginDate" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <td class="align-items-end">Position End Date:</td>
+            <td>
+                <input type="text" value="@Model.EndDate" asp-format="{0:MM/dd/yyyy}" name="endDate" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <td class="align-items-end">Voting Status:</td>
+            <td>
+                <input type="text" value="@Model.Status" name="status" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <td class="align-items-end">Primary Email Address:</td>
+            <td>
+                <input type="email" value="@Model.EmailAddress" name="email" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <td class="align-items-end">Primary Phone:</td>
+            <td>
+                <input type="tel" value="@Model.Phone" name="phone" class="form-control" />
+            </td>
+        </tr>
+        <tr>
+            <td class="align-items-end">Additional Comments:</td>
+            <td>
+                <textarea value="@Model.Comment" name="comment" class="form-control"></textarea>
+                @*<textarea asp-for="Comment" name="comment" class="form-control"></textarea>*@
+            </td>
+        </tr>
+    </table>
+    <div class="container">
+        <input type="submit" asp-page-handler="Update" class="btn btn-primary" value="Submit" id="btnSubmit" onclick="return confirm('Are you sure you want to submit your updated info?');" />
+        <input type="submit" asp-page-handler="Reset" class="btn btn-primary" value="Reset" id="btnReset" onclick="return confirm('Are you sure you want to reset your info?');" />
+        <a asp-page="ChapterOfficerRoster" class="btn btn-primary">Go Back</a>
+    </div>
+</form>

@@ -1,0 +1,19 @@
+
+<div *ngFor="let folder of FolderViewData">
+    <div data-toggle="collapse" [attr.data-target]="'#folder_'+folder?.folderID" aria-expanded="true"
+        [attr.aria-controls]="'folder_'+folder?.folderID">
+        <div (click)="SelectFolder(folder)"><i  class="fa fa-folder mr-2"></i>{{folder.folderName}}</div>
+    </div>
+    <div *ngIf="folder.childFolders.length > 0" class="ml-3">
+        <app-treeview [FolderViewData]="folder.childFolders" (CurrentSelectFolder)="SelectFolder($event)"
+            id="folder_{{folder.childFolders[0].parentID}}" class="collapse"
+            [attr.aria-controls]="'folder_'+folder.childFolders[0].parentID"></app-treeview>
+    </div>
+    <div *ngIf="folder.files.length != 0" class="ml-3">
+        <div id="folder_{{folder.folderID}}" class="collapse" [attr.data-parent]="'#folder_'+folder?.folderID">
+            <div *ngFor="let files of folder.files">
+                <label class="fa fa-picture-o"> <i  class="fa fa-picture mr-2"></i> {{files.name}}</label>
+            </div>
+        </div>
+    </div>
+</div>
