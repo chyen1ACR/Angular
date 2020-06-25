@@ -72,6 +72,7 @@ namespace ChapterPortal
             services.AddRazorPages();
             
 
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -137,7 +138,7 @@ namespace ChapterPortal
 
                 spa.Options.SourcePath = "Angular";
                 
-                /*
+                /* what is this for
                 if (env.IsDevelopment())
                 {
                     spa.UseAngularCliServer(npmScript: "start");
