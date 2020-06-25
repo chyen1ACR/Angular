@@ -136,10 +136,12 @@ namespace ChapterPortal
 
                 spa.Options.SourcePath = "Angular";
                 
+                /*
                 if (env.IsDevelopment())
                 {
                     spa.UseAngularCliServer(npmScript: "start");
                 }
+                */
                
             });
 
