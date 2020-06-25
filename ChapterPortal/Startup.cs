@@ -52,6 +52,7 @@ namespace ChapterPortal
                 options.Cookie.IsEssential = true;
             });
 
+
             // Auto Mapper Configurations
             var mappingConfig = new MapperConfiguration(mc =>
             {
