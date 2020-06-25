@@ -13,6 +13,7 @@ using Microsoft.Extensions.FileProviders;
 using System.IO;
 using AutoMapper;
 using ChapterPortal.DAL;
+using Microsoft.AspNetCore.SpaServices.AngularCli;
 
 namespace ChapterPortal
 {
@@ -100,6 +101,13 @@ namespace ChapterPortal
             });
             
             app.UseHttpsRedirection();
+
+            if (!env.IsDevelopment())
+            {
+                app.UseSpaStaticFiles();
+            }
+
+
             app.UseSession();
             app.UseCookiePolicy();
 
@@ -119,6 +127,23 @@ namespace ChapterPortal
                 endpoints.MapRazorPages();
                 endpoints.MapControllers();
             });
+
+            app.UseSpa(spa =>
+            {
+                // To learn more about options for serving an Angular SPA from ASP.NET Core,
+                // see https://go.microsoft.com/fwlink/?linkid=864501
+
+                spa.Options.SourcePath = "Angular";
+                
+                if (env.IsDevelopment())
+                {
+                    spa.UseAngularCliServer(npmScript: "start");
+                }
+               
+            });
+
+
+
         }
     }
 }
