@@ -70,7 +70,6 @@ namespace ChapterPortal
             services.AddAntiforgery(o => o.HeaderName = "XSRF-TOKEN");
 
             services.AddRazorPages();
-
             
 
         }
